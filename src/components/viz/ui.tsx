@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { SPEEDS } from "@/hooks/use-player";
 
 export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -58,7 +58,7 @@ export function Legend({ items }: { items: [string, string][] }) {
 export function Complexity({ rows }: { rows: [string, string][] }) {
   return (
     <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
-      {rows.map(([k, v]) => (<><dt key={k + "k"} className="text-muted-foreground">{k}</dt><dd key={k + "v"} className="font-mono text-foreground">{v}</dd></>))}
+      {rows.map(([k, v]) => (<Fragment key={k}><dt className="text-muted-foreground">{k}</dt><dd className="font-mono text-foreground">{v}</dd></Fragment>))}
     </dl>
   );
 }
