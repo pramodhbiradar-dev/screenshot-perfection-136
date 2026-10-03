@@ -17,7 +17,7 @@ export function usePlayer<T>(frames: T[], delay: number) {
   const reset = useCallback(() => { setPlaying(false); setIndex(0); }, []);
 
   return {
-    frame: frames[index],
+    frame: frames[Math.min(index, frames.length - 1)] as T,
     index,
     total: frames.length,
     playing,
