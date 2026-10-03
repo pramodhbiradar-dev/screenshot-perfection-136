@@ -34,7 +34,7 @@ export function SearchVisualizer() {
   const gen = () => {
     const a = randomArray(12, 1, 99).sort((x, y) => x - y);
     setArr(a); setText(a.join(", ")); setNote(""); setError("");
-    const t = Math.random() < 0.7 ? a[Math.floor(Math.random() * a.length)] : 100;
+    const t = Math.random() < 0.7 ? (a[Math.floor(Math.random() * a.length)] ?? 100) : 100;
     setTarget(t); setTargetText(String(t));
   };
 
